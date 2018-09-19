@@ -54,21 +54,21 @@ window.addEventListener("load", () => {
         }
 
         map.moveField = (x, y, map) => {
+            const westEdge  = 0;
+            const eastEdge  = (SCREEN_COL_COUNT - map.colCount) * TILE_SIZE;
             const northEdge = 0;
             const southEdge = (SCREEN_ROW_COUNT - map.rowCount) * TILE_SIZE;
-            const eastEdge  = (SCREEN_COL_COUNT - map.colCount) * TILE_SIZE;
-            const westEdge  = 0;
-
-            // マップが西に行き過ぎたら、西端まで戻す
+            
+            // マップが西に行き過ぎた時、x座標はwestEdgeより大きくなるので、西端まで戻す
             x = Math.min(x, westEdge);
 
-            // マップが東に行き過ぎたら、東端まで戻す
+            // マップが東に行き過ぎた時、x座標はeastEdgeより小さくなるので、東端まで戻す
             x = Math.max(x, eastEdge);
 
-            // マップが北に行き過ぎたら、北端まで戻す
+            // マップが北に行き過ぎた時、y座標はnorthEdgeより大きくなるので、北端まで戻す
             y = Math.min(y, northEdge);
 
-            // マップが南に行き過ぎたら、南端まで戻す
+            // マップが南に行き過ぎた時、y座標はsouthEdgeより小さくなるので、南端まで戻す
             y = Math.max(y, southEdge);
 
             map.moveTo(x, y);
