@@ -1,0 +1,27 @@
+<svg id="レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" width="408px" height="102px" viewBox="0 0 408 102">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: #b7d6aa;
+            }
+            .cls-2 {
+                fill: #e8999a;
+            }
+            .cls-3 {
+                fill: #fff;
+            }
+            .cls-4 {
+                fill: #000;
+            }    
+            .base {
+                stroke: #221e1f;
+                stroke-width: 3;
+            }       
+        </style>
+    </defs>
+    <title>tile</title>
+    <rect class="base cls-1" x="1.5"   y="1.5" width="99" height="99" />
+    <rect class="base cls-2" x="103.5" y="1.5" width="99" height="99" />
+    <rect class="base cls-3" x="205.5" y="1.5" width="99" height="99" />
+    <rect class="base cls-4" x="307.5" y="1.5" width="99" height="99" />
+</svg>

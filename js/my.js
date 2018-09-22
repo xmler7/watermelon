@@ -5,7 +5,7 @@ const SCREEN_COL_COUNT = 6;
 const SCREEN_ROW_COUNT = 7;
 const SCREEN_WIDTH     = TILE_SIZE * SCREEN_COL_COUNT;
 const SCREEN_HEIGHT    = TILE_SIZE * SCREEN_ROW_COUNT;
-const IMAGE_FILE       = "img/tile.png";
+const IMAGE_FILE       = "img/tile.svg";
 
 const MY_MAP = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
