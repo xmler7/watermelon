@@ -1,13 +1,13 @@
 enchant();
 
-const TILE_SIZE        = 102;
-const SCREEN_COL_COUNT = 6;
-const SCREEN_ROW_COUNT = 7;
-const SCREEN_WIDTH     = TILE_SIZE * SCREEN_COL_COUNT;
-const SCREEN_HEIGHT    = TILE_SIZE * SCREEN_ROW_COUNT;
-const IMAGE_FILE       = "img/tile.svg";
+const tile_size        = 104;
+const screen_col_count = 6;
+const screen_row_count = 7;
+const screen_width     = tile_size * screen_col_count;
+const screen_height    = tile_size * screen_row_count;
+const image_file       = "img/tile.svg";
 
-const MY_MAP = [
+const my_map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
     [0, 2, 1, 1, 1, 1, 1, 1, 1, 2, 0],
@@ -24,14 +24,14 @@ const MY_MAP = [
 
 window.addEventListener("load", () => {
 
-    const core = new Core(SCREEN_WIDTH, SCREEN_HEIGHT);
+    const core = new Core(screen_width, screen_height);
 
-    core.preload(IMAGE_FILE);
+    core.preload(image_file);
 
     core.addEventListener("load", () => {
 
-        const mapRowCount = MY_MAP.length;
-        const mapColCount = MY_MAP[0].length;
+        const mapRowCount = my_map.length;
+        const mapColCount = my_map[0].length;
 
         // マップを作成
         const map = new Group();
@@ -44,20 +44,20 @@ window.addEventListener("load", () => {
         // 2次元配列をマップに直す
         for (let row = 0; row < mapRowCount; row++) {
             for (let col = 0; col < mapColCount; col++) {
-                const s = new Sprite(TILE_SIZE, TILE_SIZE);
-                s.image = core.assets[IMAGE_FILE];
-                s.frame = MY_MAP[row][col];
-                s.x     = TILE_SIZE * col;
-                s.y     = TILE_SIZE * row;
+                const s = new Sprite(tile_size, tile_size);
+                s.image = core.assets[image_file];
+                s.frame = my_map[row][col];
+                s.x     = tile_size * col;
+                s.y     = tile_size * row;
                 map.addChild(s);
             }
         }
 
         map.moveField = (x, y, map) => {
             const westEdge  = 0;
-            const eastEdge  = (SCREEN_COL_COUNT - map.colCount) * TILE_SIZE;
+            const eastEdge  = (screen_col_count - map.colCount) * tile_size;
             const northEdge = 0;
-            const southEdge = (SCREEN_ROW_COUNT - map.rowCount) * TILE_SIZE;
+            const southEdge = (screen_row_count - map.rowCount) * tile_size;
             
             // マップが西に行き過ぎた時、x座標はwestEdgeより大きくなるので、西端まで戻す
             x = Math.min(x, westEdge);
